@@ -49,4 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void process(View view) {
+        Snackbar.make(view, "Order process action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
 }
