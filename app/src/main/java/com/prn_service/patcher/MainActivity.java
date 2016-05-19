@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,16 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        assert fab != null;
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -52,7 +44,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void process(View view) {
-        Snackbar.make(view, "Order process action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+        TextView userName = (TextView) findViewById(R.id.userName);
+        TextView password = (TextView) findViewById(R.id.password);
+        TextView orderNumber = (TextView) findViewById(R.id.orderNumber);
+//        Toast.makeText(
+//                    MainActivity.this,
+//                    String.format("Process clicked: %s", userName.getText()),
+//                    Toast.LENGTH_SHORT).show();
+        Snackbar.make(
+                view,
+                String.format("Process clicked: %s", userName.getText()),
+                Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show();
     }
 }

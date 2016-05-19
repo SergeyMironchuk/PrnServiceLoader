@@ -39,12 +39,10 @@
     <EditText android:id="@+id/orderNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:onClick="process" />
-    <Button
-        android:layout_width="wrap_content"
+        android:inputType="number" />
+    <TextView android:id="@+id/resultView"
+        android:text="@string/result_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_send"
-        android:gravity="center"
-        android:layout_gravity="end" />
+        android:layout_marginTop="5dp"/>
 </LinearLayout>
