@@ -47,15 +47,15 @@ public class MainActivity extends AppCompatActivity {
         TextView userName = (TextView) findViewById(R.id.userName);
         TextView password = (TextView) findViewById(R.id.password);
         TextView orderNumber = (TextView) findViewById(R.id.orderNumber);
-//        Toast.makeText(
-//                    MainActivity.this,
-//                    String.format("Process clicked: %s", userName.getText()),
-//                    Toast.LENGTH_SHORT).show();
-        Snackbar.make(
-                view,
-                String.format("Process clicked: %s", userName.getText()),
-                Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .show();
+        Toast.makeText(
+                    this,
+                    String.format("Process clicked: %s", userName.getText()),
+                    Toast.LENGTH_SHORT).show();
+//        Snackbar.make(
+//                view,
+//                String.format("Process clicked: %s", userName.getText()),
+//                Snackbar.LENGTH_LONG)
+//                .setAction("Action", null)
+//                .show();
     }
 }
