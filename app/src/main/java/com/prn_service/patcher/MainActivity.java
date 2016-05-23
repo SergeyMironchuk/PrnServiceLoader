@@ -8,8 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,9 +52,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void process(View view) {
-        TextView userName = (TextView) findViewById(R.id.userName);
-        TextView password = (TextView) findViewById(R.id.password);
-        TextView orderNumber = (TextView) findViewById(R.id.orderNumber);
+        EditText userName = (EditText) findViewById(R.id.userName);
+        EditText password = (EditText) findViewById(R.id.password);
+        EditText orderNumber = (EditText) findViewById(R.id.orderNumber);
+        final TextView resultView = (TextView) findViewById(R.id.resultView);
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://www.google.com";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    resultView.setText("Response is: " + response.substring(0, 500));
+                }
+            },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    resultView.setText("That didn't work!");
+                }
+            }
+        );
+        queue.add(stringRequest);
+
         Toast.makeText(
                     this,
                     String.format("Process clicked: %s", userName.getText()),
